@@ -1,0 +1,563 @@
+html {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Work Sans", sans-serif;
+    scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --main-transition: 0.4s;
+    --main-sub-para-color: #929292;
+    --main-border-radius: 10px;
+    --main-padding: 64px;
+}
+.clear::after,
+.clear::before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.main-heading {
+    text-align: center;
+    font-weight: normal;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+.main-heading + span {
+    display: block;
+    text-align: center;
+    margin: 20px 0px 40px;
+    font-style: italic;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px auto;
+    max-width: 800px;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+header {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    top: 0;
+}
+header > nav > ul {
+    display: flex;
+}
+header > nav > ul > li {
+    margin-right: 10px;
+    position: relative;
+}
+@media (max-width: 768px) {
+    header > nav > ul > li:not(:first-child) {
+        display: none;
+    }
+}
+header > nav > ul > li > a {
+    display: block;
+    padding: 12px 24px;
+    color: white;
+}
+header > nav > ul > li:last-child > a {
+    pointer-events: none;
+}
+header > nav > ul > li:last-child > a > i {
+    margin-left: 5px;
+}
+header > nav > ul > li:hover {
+    background-color: #cccccc;
+}
+header > nav > ul > li:hover > a {
+    color: #000000;
+}
+header > .search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header > .search-icon > i {
+    padding: 12px 24px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    cursor: pointer;
+}
+header > .search-icon > i:nth-child(2) {
+    display: none;
+}
+header > .search-icon:hover > i {
+    background-color: red;
+}
+@media (max-width: 768px) {
+    header > .search-icon > i:nth-child(1) {
+        display: none;
+    }
+    header > .search-icon > i:nth-child(2) {
+        display: block;
+    }
+}
+header > nav > ul > li:last-child > .cu-lists {
+    position: absolute;
+    background-color: #000000;
+    min-width: 200px;
+    border-bottom-left-radius: var(--main-border-radius);
+    border-bottom-right-radius: var(--main-border-radius);
+    top: calc(100% + 1px);
+    display: none;
+    z-index: -1;
+}
+header > nav > ul > li:last-child > .cu-lists.show {
+    display: block;
+    z-index: 10000;
+}
+header > nav > ul > li:last-child > ul > li {
+    padding: 20px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+header > nav > ul > li:last-child > ul > li:hover {
+    transform: translateX(15px);
+    -webkit-transform: translateX(15px);
+    -moz-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    -o-transform: translateX(15px);
+}
+.resposive-links {
+    background-color: #000000;
+    display: none;
+    margin-top: 40px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.resposive-links.true {
+    display: block;
+}
+@media (min-width: 768px) {
+    .resposive-links.true {
+        display: none;
+    }
+}
+.resposive-links > ul > li > a {
+    padding: 12px 24px;
+    display: block;
+    color: white;
+}
+.resposive-links > ul > li:last-child > ul {
+    display: none;
+}
+.resposive-links > ul > li:last-child > a > i {
+    margin-left: 5px;
+}
+
+.slide-show > .changed-cont {
+    position: relative;
+}
+.slide-show > .changed-cont > img {
+    width: 100%;
+}
+.slide-show > .changed-cont > .text {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    color: white;
+}
+.slide-show > .changed-cont > .text > h3 {
+    font-size: 30px;
+    text-align: center;
+}
+.the-Band {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+.the-Band > .container > p {
+    text-align: justify;
+}
+.the-Band > .container > .container-cards {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    gap: 80px;
+}
+@media (max-width: 992px) {
+    .the-Band > .container > .container-cards {
+        flex-direction: column;
+    }
+}
+.the-Band > .container > .container-cards > .card > h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.the-Band > .container > .container-cards > .card > img {
+    max-width: 100%;
+}
+@media (max-width: 992px) {
+    .the-Band > .container > .container-cards > .card > img {
+        display: block;
+        margin: auto;
+    }
+}
+.Tour-dates {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-color: #000000;
+}
+.Tour-dates > .main-heading {
+    color: white;
+}
+.Tour-dates > .main-heading + span {
+    color: #929292;
+}
+.Tour-dates > .container > .status {
+    margin-bottom: 30px;
+}
+.Tour-dates > .container > .status > .status-mo {
+    padding: 10px;
+    background-color: white;
+    position: relative;
+}
+.Tour-dates > .container > .status > .status-mo:not(:last-child) {
+    border: 1px solid #e0e0e0;
+}
+.Tour-dates > .container > .status > .status-mo:nth-child(1) > span,
+.Tour-dates > .container > .status > .status-mo:nth-child(2) > span {
+    background-color: #f44336;
+    display: inline-block;
+    color: white;
+    padding: 3px;
+    margin-left: 20px;
+}
+.Tour-dates > .container > .status > .status-mo:nth-child(3) > span {
+    background-color: #000000;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    right: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.Tour-dates > .container > .card-container {
+    display: flex;
+    gap: 20px;
+}
+@media (max-width: 600px) {
+    .Tour-dates > .container > .card-container {
+        flex-direction: column;
+    }
+}
+
+.Tour-dates > .container > .card-container > .card > img {
+    width: 100%;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+.Tour-dates > .container > .card-container > .card > img:hover {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+}
+.Tour-dates > .container > .card-container > .card > .info {
+    padding: 15px;
+    background-color: white;
+}
+.Tour-dates > .container > .card-container > .card > .info > h3 {
+    font-weight: normal;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+.Tour-dates > .container > .card-container > .card > .info > h3 + span {
+    color: #828282;
+    margin-bottom: 10px;
+    display: block;
+}
+.Tour-dates > .container > .card-container > .card > .info > h3 + span + p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+.Tour-dates
+    > .container
+    > .card-container
+    > .card
+    > .info
+    > h3
+    + span
+    + p
+    + button {
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+.tickets-model {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    background-color: rgb(0 0 0 / 60%);
+    display: none;
+}
+.tickets-model.open {
+    display: block;
+}
+
+.tickets-model > .content {
+    position: relative;
+    left: 50%;
+    width: 500px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    animation: animatop 0.4s;
+    -webkit-animation: animatop 0.4s;
+}
+@keyframes animatop {
+    0% {
+        top: -300px;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+@media (max-width: 600px) {
+    .tickets-model > .content {
+        width: 90%;
+    }
+}
+.tickets-model > .content > .header {
+    padding: 70px;
+    background-color: #009688;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.tickets-model > .content > .header > i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 50px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.tickets-model > .content > .header > i:hover {
+    background-color: red;
+}
+.tickets-model > .content > .header > .text > h3 {
+    font-size: 50px;
+    color: white;
+}
+.tickets-model > .content > .header > .text > h3 > i {
+    margin-right: 20px;
+}
+.tickets-model > .content > form {
+    background-color: white;
+    padding: 20px;
+}
+.tickets-model > .content > form > h5 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.tickets-model > .content > form > h5 > i {
+    margin-right: 10px;
+}
+.tickets-model > .content > form > input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.tickets-model > .content > form > button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: #009688;
+    border: none;
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.tickets-model > .content > form > button > i {
+    margin-left: 5px;
+}
+.contact {
+    padding: var(--main-padding) 0px;
+}
+.contact > .container {
+    display: flex;
+}
+@media (max-width: 600px) {
+    .contact > .container {
+        flex-direction: column;
+    }
+}
+.contact > .container > form,
+.contact > .container > .infos {
+    flex: 1;
+    position: relative;
+}
+.contact > .container > .infos > .main-info {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+@media (max-width: 600px) {
+    .contact > .container > .infos {
+        margin-bottom: 20px;
+    }
+}
+.contact > .container > form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.contact > .container > form > .main-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+    .contact > .container > form > .main-inputs {
+        flex-direction: column;
+    }
+}
+.contact > .container > form input[placeholder="Message"] {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+.contact > .container > form input[type="submit"] {
+    background-color: #000;
+    color: white;
+    position: absolute;
+    right: 0;
+}
+.landing > img {
+    width: 100%;
+    height: 100%;
+}
+.social {
+    padding: var(--main-padding) 0px;
+}
+.social > .main > ul {
+    display: flex;
+    justify-content: center;
+}
+.social > .main > ul > li > a {
+    padding: 5px;
+    color: #000;
+    display: block;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    width: 30px;
+    height: 30px;
+}
+.social > .main > ul > li > a:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+.social > .main > p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+.up-btn {
+    position: fixed;
+    z-index: 1000;
+    bottom: 60px;
+    right: 60px;
+    background-color: #000;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    cursor: pointer;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    overflow: hidden;
+}
+
+
