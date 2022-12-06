@@ -1,2 +1,2 @@
 # project-one
-#### link : https://casteloo45.github.io/pro-1/
+### https://castelo-codez.github.io/first-project/
