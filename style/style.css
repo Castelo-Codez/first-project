@@ -540,6 +540,7 @@ header > nav > ul > li:last-child > ul > li:hover {
 .up-btn {
     position: fixed;
     z-index: 1000;
+    opacity: 0;
     bottom: 60px;
     right: 60px;
     background-color: #000;
