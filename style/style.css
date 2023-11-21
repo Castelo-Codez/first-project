@@ -171,17 +171,41 @@ header > nav > ul > li:last-child > ul > li:hover {
 .resposive-links > ul > li:last-child > a > i {
     margin-left: 5px;
 }
-
-.slide-show > .changed-cont {
+.slide-show {
     position: relative;
 }
-.slide-show > .changed-cont > img {
+.slide-show > .changed-cont {
+    position: absolute;
+    top: calc(100% + 42px);
+    opacity: 0;
+    transition: 0.6s;
     width: 100%;
+    height: 37vw;
+    z-index: 4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
 }
+@media (max-width: 576px) {
+    .slide-show > .changed-cont {
+        height: 90vw;
+    }
+}
+.slide-show > .changed-cont:first-child {
+    background-image: url("/imgaes/chicago.jpg");
+}
+.slide-show > .changed-cont:nth-child(2) {
+    background-image: url("/imgaes/ny.jpg");
+}
+.slide-show > .changed-cont:nth-child(3) {
+    background-image: url("/imgaes/la.jpg");
+}
+
 .slide-show > .changed-cont > .text {
     position: absolute;
     bottom: 50px;
     left: 50%;
+    z-index: 5;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
@@ -193,9 +217,19 @@ header > nav > ul > li:last-child > ul > li:hover {
     font-size: 30px;
     text-align: center;
 }
+.slide-show > .changed-cont.active {
+    opacity: 1;
+}
+
 .the-Band {
-    padding-top: var(--main-padding);
+    padding-top: 48vw;
     padding-bottom: var(--main-padding);
+}
+
+@media (max-width: 576px) {
+    .the-Band {
+        padding-top: 110vw;
+    }
 }
 .the-Band > .container > p {
     text-align: justify;
@@ -542,6 +576,7 @@ header > nav > ul > li:last-child > ul > li:hover {
     z-index: 1000;
     opacity: 0;
     bottom: 60px;
+    border: none;
     right: 60px;
     background-color: #000;
     color: white;
@@ -560,5 +595,3 @@ header > nav > ul > li:last-child > ul > li:hover {
     -o-transition: var(--main-transition);
     overflow: hidden;
 }
-
-

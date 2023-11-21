@@ -1,7 +1,12 @@
 const $handler = document.getElementById("handler");
 const $hidden_list = document.getElementById("cu-list");
-$handler.addEventListener("click", () => {
+$handler.addEventListener("click", (e) => {
+    e.stopPropagation();
     $hidden_list.classList.toggle("show");
+});
+
+$hidden_list.addEventListener("click", (e) => {
+    e.stopPropagation();
 });
 
 const $R_l_H = document.getElementById("resposive-links-handler");
@@ -11,18 +16,22 @@ $R_l_H.addEventListener("click", () => {
     $R_l.classList.toggle("true");
 });
 
-let $container_div = document.querySelectorAll(".changed-cont");
-let $div_Num = 0;
-function $change_Div() {
-    for (let i = 0; i < $container_div.length; i++) {
-        $container_div[i].style.display = "none";
+let $container_div = Array.from(document.querySelectorAll(".changed-cont"));
+let num = 0;
+
+setInterval(() => {
+    num++;
+    $changeOut();
+}, 6000);
+
+function $changeOut() {
+    if (num > $container_div.length - 1) {
+        num = 0;
     }
-    $div_Num++;
-    $div_Num > $container_div.length ? ($div_Num = 1) : "";
-    $container_div[$div_Num - 1].style.display = "block";
-    setTimeout($change_Div, 4000);
+    $container_div.forEach(($div) => $div.classList.remove("active"));
+    $container_div[num].classList.add("active");
 }
-$change_Div();
+$changeOut();
 
 let btn_Handnler = document.querySelectorAll("#ticket-model-handler");
 let $tecket_Model = document.querySelector("#tickets-model");
@@ -40,14 +49,7 @@ $tecket_Model_closer.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (e) => {
-    if (e.target !== $handler && e.target !== $hidden_list) {
-        if ($hidden_list.classList.contains("show")) {
-            $hidden_list.classList.remove("show");
-        }
-    }
-    if (e.target == $tecket_Model) {
-        $tecket_Model.classList.remove("open");
-    }
+    $hidden_list.classList.remove("show");
 });
 window.onscroll = function () {
     if (window.scrollY >= 1000) {
